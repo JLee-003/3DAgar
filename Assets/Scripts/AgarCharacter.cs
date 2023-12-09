@@ -8,6 +8,7 @@ public class AgarCharacter : MonoBehaviour
     public SphereCollider _collider;
     public MeshRenderer _renderer;
     public SphereCollider eatingCollider;
+    public Rigidbody _rb;
     public float eatingExtent = 0.05f;
     public bool Eaten = false;
     public bool isEaten = false;
@@ -21,5 +22,9 @@ public class AgarCharacter : MonoBehaviour
             eatingCollider.radius = value + eatingExtent;
             _renderer.transform.localScale = Vector3.one * radius * 2;
         }
+    }
+    private void Start()
+    {
+        _rb = GetComponent<Rigidbody>();
     }
 }

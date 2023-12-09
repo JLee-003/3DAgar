@@ -575,7 +575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraTransform: {fileID: 963194228}
-  rb: {fileID: 0}
+  worldSize: {fileID: 1495820514}
   horizontal: 0
   vertical: 0
   speed: 5
@@ -592,10 +592,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12a8d32539d71c649b1e82e1f3198eba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 0.5
   _collider: {fileID: 1456259228}
   _renderer: {fileID: 251792126}
   eatingCollider: {fileID: 206284519}
+  _rb: {fileID: 0}
   eatingExtent: 0.05
   Eaten: 0
   isEaten: 0
@@ -611,6 +611,7 @@ GameObject:
   - component: {fileID: 1495820514}
   - component: {fileID: 1495820516}
   - component: {fileID: 1495820517}
+  - component: {fileID: 1495820518}
   m_Layer: 0
   m_Name: TheWorld
   m_TagString: Untagged
@@ -637,7 +638,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 100, y: 1, z: 100}
+  m_Size: {x: 100, y: 100, z: 100}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1495820515
 Transform:
@@ -668,7 +669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pelletPrefab: {fileID: 9095062355255720252, guid: 8ad40a0dccc266247ad9a8eb98b900c9, type: 3}
   containedVolume: {fileID: 1495820514}
-  count: 100
+  count: 300
 --- !u!114 &1495820517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -683,7 +684,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 1090337822160871638, guid: 5ff5b746ac077c448a9f390bed34e8ad, type: 3}
   containedVolume: {fileID: 1495820514}
-  count: 50
+  count: 5
+--- !u!114 &1495820518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495820513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a536047f262b3194a8fd4e7bad927577, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallPrefab: {fileID: 5820811260528128613, guid: 4bdf3af402675ba42a6ebb4b719242cf, type: 3}
+  worldSize: {fileID: 1495820514}
+  pRadius: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

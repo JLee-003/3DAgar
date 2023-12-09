@@ -26,42 +26,8 @@ public class EnemyMover : MonoBehaviour
         if (direction != Vector3.zero)
         {
             transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
-            Debug.Log(direction);
+            //Debug.Log(direction);
         }
         rb.velocity = direction * speed;
-    }
-    public Vector3 HitWall(Vector3 direction)
-    {
-        float x = this.transform.position.x;
-        float y = this.transform.position.z;
-        float xBound = containedVolume.size.x / 2;
-        float yBound = containedVolume.size.z / 2;
-        Vector3 d = direction;
-        if (x > xBound || x < -xBound)
-        {
-            if (x > xBound)
-            {
-                x = xBound;
-            }
-            if (x < -xBound)
-            {
-                x = -xBound;
-            }
-            d.x = -d.x;
-        }
-        if (y > yBound || y < -yBound)
-        {
-            if (y > yBound)
-            {
-                y = yBound;
-            }
-            if (y < -yBound)
-            {
-                y = -yBound;
-            }
-            d.z = -d.z;
-        }
-        this.transform.position = new Vector3(x, this.transform.position.y, y);
-        return d;
     }
 }
