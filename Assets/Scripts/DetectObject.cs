@@ -5,11 +5,10 @@ using UnityEngine;
 public class DetectObject : MonoBehaviour
 {
     public bool foundPellet = false;
-    public bool foundAgar = false;
     public Vector3 direction;
     public AgarCharacter agar;
     public SphereCollider detectCollider;
-    float defaultRadius = 1.25f;
+    public float defaultRadius = 1.25f;
     Pellet p;
     AgarCharacter a;
     Vector3 pPosition;
@@ -18,11 +17,11 @@ public class DetectObject : MonoBehaviour
     public float findingSpeed = 3f;
     private void OnTriggerEnter(Collider other)
     {
-        if (!foundPellet || !foundAgar)
+        if (!foundPellet)
         {
             p = other.GetComponent<Pellet>();
-            a = other.GetComponent<AgarCharacter>();
-            if (p != null && a == null)
+            //a = other.GetComponent<AgarCharacter>();
+            if (p != null)
             {
                 //Vector3 pPosition = new Vector3(p.GetComponent<Transform>().x, p.GetComponent<Transform>().y, p.GetComponent<Transform>().z);
                 pPosition = p.transform.position;
@@ -31,27 +30,6 @@ public class DetectObject : MonoBehaviour
                 direction.Normalize();
                 foundPellet = true;
                 detectCollider.radius = defaultRadius;
-            }
-            else if(a != null)
-            {
-                if(agar.Radius <= a.Radius)
-                {
-                    aPosition = a.transform.position;
-                    aVelocity = a._rb.velocity;
-                    direction = aVelocity;
-                    direction.Normalize();
-                    foundAgar = true;
-                    detectCollider.radius = defaultRadius;
-                }
-                else if (agar.Radius > a.Radius)
-                {
-                    aPosition = a.transform.position;
-                    aVelocity = a._rb.velocity * -1f;
-                    direction = aVelocity;
-                    direction.Normalize();
-                    foundAgar = true;
-                    detectCollider.radius = defaultRadius;
-                }
             }
         }
     }
@@ -69,7 +47,7 @@ public class DetectObject : MonoBehaviour
             agar.Eaten = false;
             p = null;
         }
-        if (!foundPellet && !foundAgar)
+        if (!foundPellet)
         {
             direction = Vector3.zero;
             detectCollider.radius += .25f * Time.deltaTime * findingSpeed;
@@ -77,20 +55,6 @@ public class DetectObject : MonoBehaviour
         if (foundPellet && p != null)
         {
             if (pPosition != p.transform.position)
-            {
-                foundPellet = false;
-                p = null;
-            }
-        }
-        if (foundAgar && a != null)
-        {
-            float dist = Vector3.Distance(a.transform.position, this.transform.position);
-            if (dist > 15)
-            {
-                foundAgar = false;
-                a = null;
-            }
-            if (foundPellet)
             {
                 foundPellet = false;
                 p = null;

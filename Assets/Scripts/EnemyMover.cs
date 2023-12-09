@@ -8,6 +8,7 @@ public class EnemyMover : MonoBehaviour
     internal Rigidbody rb;
     public SphereCollider detectCollider;
     public DetectObject Dto;
+    public DetectAgar dta;
     public bool foundPellet = false;
     public BoxCollider containedVolume;
     Vector3 direction;
@@ -17,7 +18,15 @@ public class EnemyMover : MonoBehaviour
     }
     private void Update()
     {
-        direction = Dto.direction;
+        if (!dta.foundAgar)
+        {
+            direction = Dto.direction;
+        }
+        else
+        {
+            direction = dta.direction;
+            Dto.detectCollider.radius = Dto.defaultRadius;
+        }
         //direction = HitWall(direction);
         Move(direction);
     }

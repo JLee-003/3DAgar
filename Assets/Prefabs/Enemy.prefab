@@ -37,6 +37,7 @@ Transform:
   - {fileID: 1918839822603902252}
   - {fileID: 6060824310055274959}
   - {fileID: 1349135826156272537}
+  - {fileID: 6398972420352828864}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &6515470845425698173
@@ -121,6 +122,7 @@ MonoBehaviour:
   speed: 5
   detectCollider: {fileID: 3186229106076653503}
   Dto: {fileID: 4785502644361719403}
+  dta: {fileID: 7988601849482972063}
   foundPellet: 0
   containedVolume: {fileID: 0}
 --- !u!114 &1720873749313284361
@@ -205,7 +207,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   foundPellet: 0
-  foundAgar: 0
   direction: {x: 0, y: 0, z: 0}
   agar: {fileID: 3650022906000572410}
   detectCollider: {fileID: 3186229106076653503}
@@ -277,6 +278,77 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agar: {fileID: 3650022906000572410}
+--- !u!1 &6978078289769478822
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6398972420352828864}
+  - component: {fileID: 198181929549519262}
+  - component: {fileID: 7988601849482972063}
+  m_Layer: 0
+  m_Name: DetectAgarCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6398972420352828864
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6978078289769478822}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4844391357353790247}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &198181929549519262
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6978078289769478822}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.25
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7988601849482972063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6978078289769478822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a56f4482555da04a9d5dcae86ec09ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foundAgar: 0
+  direction: {x: 0, y: 0, z: 0}
+  agar: {fileID: 3650022906000572410}
+  detectCollider: {fileID: 198181929549519262}
+  findingSpeed: 3
 --- !u!1 &8621106611481301112
 GameObject:
   m_ObjectHideFlags: 0
